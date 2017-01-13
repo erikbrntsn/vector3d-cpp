@@ -1,6 +1,7 @@
 #pragma once
 #include <array>
 #include <cmath>
+#include <ostream>
 
 template<typename T>
 class Vector {
@@ -8,8 +9,8 @@ private:
   std::array<T, 3> values_;
 
 public:
-  Vector() : values_{0, 0, 0} {}
-  Vector(const T &a, const T &b, const T &c) : values_{a, b, c} {}
+  Vector() : values_{{0, 0, 0}} {}
+  Vector(const T &a, const T &b, const T &c) : values_{{a, b, c}} {}
   Vector(const Vector<T> &rhs) : values_(rhs.values_) {}
   Vector(const std::array<T, 3> &rhs) : values_(rhs) {}
   template<typename TRhs>
@@ -172,4 +173,10 @@ template<typename T, typename TRhs>
 Vector<T> operator-(const TRhs &lhs, Vector<T> rhs) {
   rhs -= lhs;
   return rhs;
+}
+
+template <typename T>
+std::ostream &operator<<(std::ostream &os, const Vector<T> &rhs) {
+  os << rhs[0] << "," << rhs[1] << "," << rhs[2];
+  return os;
 }
