@@ -14,7 +14,7 @@ public:
   Vector(const Vector<T> &rhs) : values_(rhs.values_) {}
   Vector(const std::array<T, 3> &rhs) : values_(rhs) {}
   template<typename TRhs>
-  Vector(const Vector<TRhs> &rhs) : values_{static_cast<T>(rhs[0]), static_cast<T>(rhs[1]), static_cast<T>(rhs[2])} {};
+  Vector(const Vector<TRhs> &rhs) : values_{{static_cast<T>(rhs[0]), static_cast<T>(rhs[1]), static_cast<T>(rhs[2])}} {};
 
   Vector& operator=(const Vector &vec) = default;
 
