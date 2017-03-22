@@ -56,9 +56,13 @@ public:
   #undef VECTOR_INPLACE_ARITHMETIC_OP
 
   T norm() const {
-    return std::sqrt(values_[0] * values_[0] +
-                     values_[1] * values_[1] +
-                     values_[2] * values_[2]);
+    return std::sqrt(normSq());
+  }
+
+  T normSq() const {
+    return values_[0] * values_[0] +
+           values_[1] * values_[1] +
+           values_[2] * values_[2];
   }
 
   Vector<T> operator-() const {
