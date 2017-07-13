@@ -80,6 +80,10 @@ public:
     }
   }
 
+  std::array<T, 3> arr() const {
+    return values_;
+  }
+
   Vector<T> cross(const Vector<T> &rhs) const {
     return {values_[1]*rhs.values_[2] - values_[2]*rhs.values_[1],
             values_[2]*rhs.values_[0] - values_[0]*rhs.values_[2],
